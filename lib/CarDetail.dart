@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:wheelio/Car.dart';
 import 'package:wheelio/SearchField.dart';
@@ -34,7 +32,7 @@ class CarDetailedWidget extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 SearchField(),
-                if(show != false) Car(),
+                if (show != false) Car(price: 198322,),
               ],
             ),
           ),

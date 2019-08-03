@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:wheelio/GoogleMapCard.dart';
-import 'package:wheelio/Map.dart';
 import 'package:wheelio/SplashScreen.dart';
 import 'package:wheelio/SearchCard.dart';
 
@@ -18,7 +17,6 @@ class MyApp extends StatelessWidget {
       home: SplashScreen(),
       routes: {
         '/search': (context) => SearchCard(),
-        '/map': (context) => Map(),
         '/googlemap': (context) => GoogleMapCard(),
       },
     );

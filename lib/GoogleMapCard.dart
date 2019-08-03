@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:geolocator/geolocator.dart';
-//import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-//import 'package:location/location.dart';
 import 'package:wheelio/CarDetail.dart';
 
 class GoogleMapCard extends StatefulWidget {
@@ -76,7 +74,7 @@ class _GoogleMapState extends State<GoogleMapCard> {
         scrollGesturesEnabled: false,
         myLocationButtonEnabled: true,
         mapType: MapType.normal,
-        markers: _currentLocation(),
+        markers: _setMarker(),
         onMapCreated: (GoogleMapController controller) {
           _controller.complete(controller);
         },
@@ -100,7 +98,7 @@ class _GoogleMapState extends State<GoogleMapCard> {
     });
   }
 
-  Set<Marker> _currentLocation() {
+  Set<Marker> _setMarker() {
     return <Marker>[
       Marker(
         markerId: MarkerId("home"),

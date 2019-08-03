@@ -13,6 +13,7 @@ class Logo extends StatelessWidget {
         SizedBox(
           height: 262.89,
         ),
+        // Company Title
         Text(
           title,
           textDirection: TextDirection.ltr,
@@ -22,6 +23,7 @@ class Logo extends StatelessWidget {
             color: logoCaptionColor,
           ),
         ),
+        // Company Description
         Text(
           description,
           textDirection: TextDirection.ltr,

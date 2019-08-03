@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Car extends StatelessWidget {
+  Car({Key key, this.price}) : super(key: key);
+  final int price;
   final int views = 56;
   final int parked = 12;
   @override
@@ -28,9 +30,18 @@ class Car extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
-                      CircleButton(icon: FontAwesomeIcons.trailer, text: 'manuel'),
-                      CircleButton(icon: FontAwesomeIcons.trello, text: '6.4L V8'),
-                      CircleButton(icon: FontAwesomeIcons.wheelchair, text: 'AWD'),
+                      CircleButton(
+                        icon: FontAwesomeIcons.trailer,
+                        text: 'manuel',
+                      ),
+                      CircleButton(
+                        icon: FontAwesomeIcons.trello,
+                        text: '6.4L V8',
+                      ),
+                      CircleButton(
+                        icon: FontAwesomeIcons.wheelchair,
+                        text: 'AWD',
+                      ),
                     ],
                   ),
                 ),
@@ -67,7 +78,14 @@ class Car extends StatelessWidget {
               ),
             ],
           ),
-          Text('\$12,300.00', style: TextStyle(color: Color(0xFF333333), fontWeight: FontWeight.bold, fontSize: 21.0,),),
+          Text(
+            "\$${price.toString()}",
+            style: TextStyle(
+              color: Color(0xFF333333),
+              fontWeight: FontWeight.bold,
+              fontSize: 21.0,
+            ),
+          ),
         ],
       ),
     );
@@ -110,7 +128,10 @@ class CircleButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(children: <Widget>[
       _circleIcon(icon),
-      Text(text, style: TextStyle(fontSize: 12.0),),
+      Text(
+        text,
+        style: TextStyle(fontSize: 12.0),
+      ),
     ]);
   }
 }
