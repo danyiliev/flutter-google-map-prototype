@@ -21,10 +21,6 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <!-- Google Map API HERE added by developer -->
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="YOUR ANDROID API KEY HERE"/>
         <!-- Don't delete the meta-data below.
              This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
         <meta-data
