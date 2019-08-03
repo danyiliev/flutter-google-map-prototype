@@ -71,7 +71,6 @@ class _GoogleMapState extends State<GoogleMapCard> {
             showFlag = false;
           });
         },
-        scrollGesturesEnabled: false,
         myLocationButtonEnabled: true,
         mapType: MapType.normal,
         markers: _setMarker(),
