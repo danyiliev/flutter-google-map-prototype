@@ -13,8 +13,8 @@ class CarDetailedWidget extends StatelessWidget {
           color: Color(0xFF9D9D9D), blurRadius: 20.0, offset: Offset(0.0, 3.0))
     ],
     borderRadius: BorderRadius.only(
-      topLeft: Radius.circular(5.0),
-      topRight: Radius.circular(5.0),
+      topLeft: Radius.circular(20.0),
+      topRight: Radius.circular(20.0),
     ),
   );
 
@@ -27,12 +27,18 @@ class CarDetailedWidget extends StatelessWidget {
         children: <Widget>[
           Container(
             width: double.infinity,
-            padding: EdgeInsets.only(top: 42.0, bottom: 15.0),
+            padding: EdgeInsets.only(
+              top: show == false ? 20.0 : 42.0,
+              bottom: show == false ? 35.0 : 15.0,
+            ),
             decoration: decoration,
             child: Column(
               children: <Widget>[
                 SearchField(),
-                if (show != false) Car(price: 198322,),
+                if (show != false)
+                  Car(
+                    price: 198322,
+                  ),
               ],
             ),
           ),
