@@ -31,7 +31,7 @@ dependencies:
   flutter_statusbarcolor: ^0.2.3
 
   # Google Map Flutter
-  google_maps_flutter: 
+  google_maps_flutter: ^0.5.24+1
 
 dev_dependencies:
   flutter_test:

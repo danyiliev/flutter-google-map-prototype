@@ -40,7 +40,7 @@ class _CarListState extends State<CarList> {
           onClick: () => onClick(3),
           size: index == 3 ? 48.0 : 24.0,
         ),
-        //CarDetailedWidget(show: flag),
+        CarDetailedWidget(show: flag),
       ],
     );
   }

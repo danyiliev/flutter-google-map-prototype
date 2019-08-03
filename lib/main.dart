@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
-import 'package:wheelio/GoolgeMapCard.dart';
+import 'package:wheelio/GoogleMapCard.dart';
 import 'package:wheelio/Map.dart';
 import 'package:wheelio/SplashScreen.dart';
 import 'package:wheelio/SearchCard.dart';
