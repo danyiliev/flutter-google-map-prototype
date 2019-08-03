@@ -22,7 +22,6 @@ class CarDetailedWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('show flag' + show.toString());
     return Container(
       width: MediaQuery.of(context).size.width,
       child: Column(

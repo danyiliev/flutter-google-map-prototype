@@ -11,7 +11,10 @@ class SearchField extends StatelessWidget {
   final BoxDecoration decoration = BoxDecoration(
     boxShadow: [
       BoxShadow(
-          color: Color(0xFF9D9D9D), blurRadius: 20.0, offset: Offset(0.0, 3.0))
+        color: Color(0xFF9D9D9D),
+        blurRadius: 10.0,
+        offset: Offset(0.0, 0.5),
+      )
     ],
   );
 
@@ -21,7 +24,7 @@ class SearchField extends StatelessWidget {
       width: 335,
       decoration: decoration,
       child: TextField(
-        enabled: false,
+        //enabled: false,
         autofocus: false,
         onTap: onTap,
         onSubmitted: onSubmitted,
@@ -42,9 +45,20 @@ class SearchField extends StatelessWidget {
           hintStyle: TextStyle(color: fontColor),
           hintText: label,
 
-          // Border Style          
+          // Border Style
+          focusedBorder: OutlineInputBorder(
+            borderSide:
+                BorderSide(color: Colors.white, style: BorderStyle.none),
+            borderRadius: BorderRadius.circular(25),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderSide:
+                BorderSide(color: Colors.white, style: BorderStyle.none),
+            borderRadius: BorderRadius.circular(25),
+          ),
           border: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.white),
+            borderSide:
+                BorderSide(color: Colors.white, style: BorderStyle.none),
             borderRadius: BorderRadius.circular(25),
           ),
         ),

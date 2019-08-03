@@ -12,13 +12,13 @@ class SearchCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       body: Container(
         decoration: decoration,
         child: Scaffold(
           backgroundColor: Colors.transparent,
           body: Container(
             width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
             color: Colors.black.withOpacity(0.1),
             child: Column(
               children: <Widget>[

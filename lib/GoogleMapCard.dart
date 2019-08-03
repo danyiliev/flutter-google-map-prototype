@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:geolocator/geolocator.dart';
 //import 'package:geolocator/geolocator.dart';
@@ -42,7 +43,7 @@ class _GoogleMapState extends State<GoogleMapCard> {
     return Scaffold(
       body: loading == true
           ? Center(
-              child: CircularProgressIndicator(),
+              child: SpinKitFadingCircle(color: Colors.white, size: 50.0),
             )
           : mapWidget(showFlag),
     );
@@ -72,6 +73,7 @@ class _GoogleMapState extends State<GoogleMapCard> {
             showFlag = false;
           });
         },
+        scrollGesturesEnabled: false,
         myLocationButtonEnabled: true,
         mapType: MapType.normal,
         markers: _currentLocation(),
