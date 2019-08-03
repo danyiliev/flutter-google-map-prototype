@@ -22,6 +22,7 @@ class CarDetailedWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print('show flag' + show.toString());
     return Container(
       width: MediaQuery.of(context).size.width,
       child: Column(
@@ -34,7 +35,7 @@ class CarDetailedWidget extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 SearchField(),
-                if(show == true ) Car(),
+                if(show != false) Car(),
               ],
             ),
           ),

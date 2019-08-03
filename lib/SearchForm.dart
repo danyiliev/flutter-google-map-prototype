@@ -54,7 +54,7 @@ class _SearchFromState extends State<SearchForm> {
                 color: Color(0xFF333333),
                 fontColor: Colors.white,
                 onPressed: () {
-                  Navigator.pushNamed(context, '/map');
+                  Navigator.pushNamed(context, '/googlemap');
                 },
               ),
               if (showFlag == true) ...[

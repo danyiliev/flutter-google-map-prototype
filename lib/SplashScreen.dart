@@ -11,11 +11,11 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
 
   void navigateToSearch() {
-    Navigator.pushNamed(context, '/googlemap');
+    Navigator.pushNamed(context, '/search');
   }
 
   startTime() async {
-    var _duration = new Duration(seconds: 2);
+    var _duration = new Duration(seconds: 6);
     return new Timer(_duration, navigateToSearch);
   }
 
