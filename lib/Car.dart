@@ -4,18 +4,16 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:wheelio/CircleButton.dart';
 
 class Car extends StatelessWidget {
-  Car({Key key, this.price, this.show}) : super(key: key);
+  Car({Key key, this.price}) : super(key: key);
   final double price;
-  final bool show;
   final int views = 56;
   final int parked = 12;
 
   @override
   Widget build(BuildContext context) {
-    print(show);
     return Container(
       width: 335.0,
-      child: show == false ? null : Column(
+      child: Column(
         children: <Widget>[
           SizedBox(
             height: 20,
