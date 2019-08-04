@@ -34,7 +34,10 @@ class CarDetailedWidget extends StatelessWidget {
             decoration: decoration,
             child: Column(
               children: <Widget>[
-                SearchField(),
+                SearchField(
+                  onTap: null,
+                  onSubmitted: null,
+                ),
                 if (show != false)
                   Car(
                     price: 198322,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class SearchField extends StatelessWidget {
-  SearchField({Key key, this.onTap = null, this.onSubmitted = null, this.label})
+  SearchField({Key key, this.onTap, this.onSubmitted, this.label})
       : super(key: key);
   final Function onTap;
   final Function onSubmitted;

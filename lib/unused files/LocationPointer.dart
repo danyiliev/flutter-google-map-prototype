@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class LocationPointer extends StatelessWidget {
-  LocationPointer({Key key, this.top, this.left, this.size = 24.0, this.onClick = null})
+  LocationPointer({Key key, this.top, this.left, this.size = 24.0, this.onClick})
       : super(key: key);
 
   final double top;
