@@ -11,6 +11,7 @@ class _SearchCardState extends State<SearchCard> {
   var showFlag = true;
   var length = 127.0;
   var submitable = false;
+  var mapLoading = false;
 
   void _hide() {
     setState(() {
@@ -35,6 +36,12 @@ class _SearchCardState extends State<SearchCard> {
   void _enable() {
     setState(() {
       submitable = true;
+    });
+  }
+
+  void _load() {
+    setState(() {
+      mapLoading = true;
     });
   }
 
@@ -75,10 +82,12 @@ class _SearchCardState extends State<SearchCard> {
                     length: length,
                     showFlag: showFlag,
                     submitable: submitable,
+                    loading: mapLoading,
                     show: _show,
                     hide: _hide,
                     enable: _enable,
-                    disable: _disable,                    
+                    disable: _disable,
+                    load: _load,             
                   ),
                 ],
               ),

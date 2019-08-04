@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:wheelio/GoogleMapCard.dart';
 import 'package:wheelio/SearchField.dart';
 import 'package:wheelio/StyledButton.dart';
@@ -12,16 +13,20 @@ class SearchForm extends StatelessWidget {
     this.hide,
     this.disable,
     this.enable,
+    this.load,
+    this.loading,
     this.submitable,
   }) : super(key: key);
 
   final double length;
   final bool showFlag;
   final bool submitable;
+  final bool loading;
   final Function show;
   final Function hide;
   final Function disable;
   final Function enable;
+  final Function load;
 
   @override
   Widget build(BuildContext context) {
@@ -62,10 +67,15 @@ class SearchForm extends StatelessWidget {
           onPressed: () {
             print(submitable);
             if (submitable == true) {
+              load();
               navigateToGoogleMap();
             }
           },
         ),
+        if (loading)
+          SizedBox(height: 20.0,),
+        if (loading)
+          SpinKitFadingCircle(color: Colors.white, size: 50.0),
         if (showFlag == true) ...[
           SizedBox(height: 33),
           Text('OR', style: TextStyle(color: Color(0xFF333333))),
