@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wheelio/GoogleMapCard.dart';
 import 'package:wheelio/SearchField.dart';
 import 'package:wheelio/StyledButton.dart';
 
@@ -13,7 +14,7 @@ class SearchForm extends StatelessWidget {
     this.enable,
     this.submitable,
   }) : super(key: key);
-  
+
   final double length;
   final bool showFlag;
   final bool submitable;
@@ -24,6 +25,17 @@ class SearchForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    void navigateToGoogleMap() {
+      Navigator.push(
+          context,
+          PageRouteBuilder(
+            pageBuilder: (c, a1, a2) => GoogleMapCard(),
+            transitionsBuilder: (c, anim, a2, child) =>
+                FadeTransition(opacity: anim, child: child),
+            transitionDuration: Duration(milliseconds: 2000),
+          ));
+    }
+
     return Column(
       children: <Widget>[
         SearchField(
@@ -50,7 +62,7 @@ class SearchForm extends StatelessWidget {
           onPressed: () {
             print(submitable);
             if (submitable == true) {
-              Navigator.pushNamed(context, '/googlemap');
+              navigateToGoogleMap();
             }
           },
         ),
