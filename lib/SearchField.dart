@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 
 class SearchField extends StatelessWidget {
-  SearchField({Key key, this.onTap, this.onSubmitted, this.label})
-      : super(key: key);
+  SearchField({
+    Key key,
+    this.onTap,
+    this.onSubmitted,
+    this.label,
+    this.onChange,
+  }) : super(key: key);
   final Function onTap;
   final Function onSubmitted;
+  final Function onChange;
   final String label;
   final Color fontColor = Color(0xFF9D9D9D);
 
@@ -25,7 +31,9 @@ class SearchField extends StatelessWidget {
       decoration: decoration,
       child: TextField(
         //enabled: false,
+        onChanged: onChange,
         autofocus: false,
+        maxLength: 30,
         onTap: onTap,
         onSubmitted: onSubmitted,
         cursorColor: fontColor,
@@ -35,6 +43,7 @@ class SearchField extends StatelessWidget {
           // Background Style
           filled: true,
           fillColor: Colors.white,
+          counterText: '',
           contentPadding: EdgeInsets.only(top: 10, bottom: 10),
 
           // Search Prefix Style

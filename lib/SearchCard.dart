@@ -10,6 +10,7 @@ class SearchCard extends StatefulWidget {
 class _SearchCardState extends State<SearchCard> {
   var showFlag = true;
   var length = 127.0;
+  var submitable = false;
 
   void _hide() {
     setState(() {
@@ -22,6 +23,18 @@ class _SearchCardState extends State<SearchCard> {
     setState(() {
       length = 127.0;
       showFlag = true;
+    });
+  }
+
+  void _disable() {
+    setState(() {
+      submitable = false;
+    });
+  }
+
+  void _enable() {
+    setState(() {
+      submitable = true;
     });
   }
 
@@ -60,8 +73,11 @@ class _SearchCardState extends State<SearchCard> {
                   SearchForm(
                     length: length,
                     showFlag: showFlag,
+                    submitable: submitable,
                     show: _show,
                     hide: _hide,
+                    enable: _enable,
+                    disable: _disable,                    
                   ),
                 ],
               ),

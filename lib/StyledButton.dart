@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 
 class StyledButton extends StatelessWidget {
-  StyledButton(
-      {Key key, this.title, this.color, this.fontColor, this.onPressed})
-      : super(key: key);
+  StyledButton({
+    Key key,
+    this.title,
+    this.color,
+    this.fontColor,
+    this.onPressed,
+  }) : super(key: key);
 
   final String title;
   final Color color;
@@ -18,7 +22,10 @@ class StyledButton extends StatelessWidget {
       child: FlatButton(
         child: Text(title,
             style: TextStyle(
-                color: fontColor, fontSize: 14, fontWeight: FontWeight.bold)),
+              color: fontColor,
+              fontSize: 14,
+              fontWeight: FontWeight.bold,
+            )),
         color: color,
         onPressed: onPressed,
         shape: RoundedRectangleBorder(

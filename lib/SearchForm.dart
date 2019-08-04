@@ -3,11 +3,24 @@ import 'package:wheelio/SearchField.dart';
 import 'package:wheelio/StyledButton.dart';
 
 class SearchForm extends StatelessWidget {
-  SearchForm({Key key, this.length, this.showFlag, this.show, this.hide}) : super(key: key);
+  SearchForm({
+    Key key,
+    this.length,
+    this.showFlag,
+    this.show,
+    this.hide,
+    this.disable,
+    this.enable,
+    this.submitable,
+  }) : super(key: key);
+  
   final double length;
   final bool showFlag;
+  final bool submitable;
   final Function show;
   final Function hide;
+  final Function disable;
+  final Function enable;
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +34,13 @@ class SearchForm extends StatelessWidget {
           onSubmitted: (v) {
             show();
           },
+          onChange: (v) {
+            if (v.toString().length > 0) {
+              enable();
+            } else {
+              disable();
+            }
+          },
         ),
         SizedBox(height: length),
         StyledButton(
@@ -28,7 +48,10 @@ class SearchForm extends StatelessWidget {
           color: Color(0xFF333333),
           fontColor: Colors.white,
           onPressed: () {
-            Navigator.pushNamed(context, '/googlemap');
+            print(submitable);
+            if (submitable == true) {
+              Navigator.pushNamed(context, '/googlemap');
+            }
           },
         ),
         if (showFlag == true) ...[
