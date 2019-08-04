@@ -38,10 +38,14 @@ class CarDetailedWidget extends StatelessWidget {
                   onTap: null,
                   onSubmitted: null,
                 ),
-                if (show != false)
-                  Car(
+                AnimatedOpacity(
+                  opacity: show ? 1.0 : 0.0,
+                  duration: Duration(milliseconds: 500),
+                  child: Car(
                     price: 198322,
+                    show: show,
                   ),
+                ),
               ],
             ),
           ),

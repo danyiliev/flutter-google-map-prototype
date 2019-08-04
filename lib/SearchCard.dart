@@ -60,6 +60,7 @@ class _SearchCardState extends State<SearchCard> {
         child: Container(
           decoration: decoration,
           child: Scaffold(
+            resizeToAvoidBottomPadding: false,
             backgroundColor: Colors.transparent,
             body: Container(
               width: MediaQuery.of(context).size.width,
