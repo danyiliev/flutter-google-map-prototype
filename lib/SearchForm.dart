@@ -65,7 +65,6 @@ class SearchForm extends StatelessWidget {
           color: Color(0xFF333333),
           fontColor: Colors.white,
           onPressed: () {
-            print(submitable);
             if (submitable == true) {
               load();
               navigateToGoogleMap();

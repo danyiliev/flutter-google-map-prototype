@@ -21,15 +21,34 @@ class _GoogleMapState extends State<GoogleMapCard> {
   int index = 0;
   bool showFlag = false;
   bool loading = true;
+  BitmapDescriptor smallPin;
+  BitmapDescriptor bigPin;
 
   @override
   void initState() {
+    setSourceAndDestinationIcons();
     getCurrentLocation();
     super.initState();
   }
 
+  void setSourceAndDestinationIcons() async {
+    BitmapDescriptor small = await BitmapDescriptor.fromAssetImage(
+      ImageConfiguration(devicePixelRatio: 3.5),
+      'assets/small_pin.png',
+    );
+    BitmapDescriptor big = await BitmapDescriptor.fromAssetImage(
+      ImageConfiguration(devicePixelRatio: 3.5),
+      'assets/big_pin.png',
+    );
+    setState(() {
+      smallPin = small;
+      bigPin = big;
+    });
+  }
+
   void getCurrentLocation() async {
     Position res = await Geolocator().getCurrentPosition();
+    print(res);
     setState(() {
       position = res;
       loading = false;
@@ -43,15 +62,14 @@ class _GoogleMapState extends State<GoogleMapCard> {
           ? Center(
               child: SpinKitFadingCircle(color: Colors.white, size: 50.0),
             )
-          : mapWidget(showFlag),
+          : mapWidget(showFlag, position),
     );
   }
 
-  Widget mapWidget(showFlag) {
-    print(showFlag);
+  Widget mapWidget(showFlag, position) {
     return Stack(
       children: <Widget>[
-        _googleMap(context),
+        _googleMap(context, position),
         _zoomIn(),
         _zoomOut(),
         CarDetailedWidget(
@@ -61,7 +79,7 @@ class _GoogleMapState extends State<GoogleMapCard> {
     );
   }
 
-  Widget _googleMap(BuildContext context) {
+  Widget _googleMap(context, position) {
     return Container(
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height,
@@ -69,6 +87,7 @@ class _GoogleMapState extends State<GoogleMapCard> {
         onTap: (lat) {
           setState(() {
             showFlag = false;
+            index = 0;
           });
         },
         myLocationButtonEnabled: true,
@@ -90,7 +109,6 @@ class _GoogleMapState extends State<GoogleMapCard> {
   }
 
   void pick(i) {
-    print(i);
     setState(() {
       index = i;
       showFlag = true;
@@ -109,25 +127,28 @@ class _GoogleMapState extends State<GoogleMapCard> {
       Marker(
         markerId: MarkerId('first_pin'),
         position: LatLng(37.790650, -122.405591),
-        icon: BitmapDescriptor.defaultMarkerWithHue(160.0),
+        icon: index == 1 ? bigPin : smallPin,
         infoWindow: InfoWindow(),
         onTap: () => pick(1),
+        draggable: false,
       ),
       //_secondPin,
       Marker(
         markerId: MarkerId('second_pin'),
         position: LatLng(37.790351, -122.406104),
-        icon: BitmapDescriptor.defaultMarkerWithHue(160.0),
+        icon: index == 2 ? bigPin : smallPin,
         infoWindow: InfoWindow(),
         onTap: () => pick(2),
+        draggable: false,
       ),
       //_thirdPin,
       Marker(
         markerId: MarkerId('third_pin'),
         position: LatLng(37.788176, -122.405969),
-        icon: BitmapDescriptor.defaultMarkerWithHue(160.0),
+        icon: index == 3 ? bigPin : smallPin,
         infoWindow: InfoWindow(),
         onTap: () => pick(3),
+        draggable: false,
       ),
     ].toSet();
   }
