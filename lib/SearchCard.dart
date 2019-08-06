@@ -58,11 +58,11 @@ class _SearchCardState extends State<SearchCard> {
       resizeToAvoidBottomPadding: false,
       body: GestureDetector(
         onTap: () {
-            FocusScopeNode currentFocus = FocusScope.of(context);
-            if (!currentFocus.hasPrimaryFocus) {
-              currentFocus.unfocus();
-              _show();
-            }
+          FocusScopeNode currentFocus = FocusScope.of(context);
+          if (!currentFocus.hasPrimaryFocus) {
+            currentFocus.unfocus();
+            _show();
+          }
         },
         child: Container(
           decoration: decoration,
@@ -87,7 +87,7 @@ class _SearchCardState extends State<SearchCard> {
                     hide: _hide,
                     enable: _enable,
                     disable: _disable,
-                    load: _load,             
+                    load: _load,
                   ),
                 ],
               ),

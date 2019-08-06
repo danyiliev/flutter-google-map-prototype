@@ -40,9 +40,13 @@ class CarDetailedWidget extends StatelessWidget {
                 ),
                 AnimatedSwitcher(
                   duration: Duration(milliseconds: 800),
-                  child: show ? Car(
-                    price: 198322,
-                  ) : SizedBox(height: 10,),
+                  child: show
+                      ? Car(
+                          price: 198322,
+                        )
+                      : SizedBox(
+                          height: 10,
+                        ),
                 ),
               ],
             ),

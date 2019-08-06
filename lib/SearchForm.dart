@@ -71,10 +71,8 @@ class SearchForm extends StatelessWidget {
             }
           },
         ),
-        if (loading)
-          SizedBox(height: 20.0,),
-        if (loading)
-          SpinKitFadingCircle(color: Colors.white, size: 50.0),
+        if (loading) SizedBox(height: 20.0),
+        if (loading) SpinKitFadingCircle(color: Colors.white, size: 50.0),
         if (showFlag == true) ...[
           SizedBox(height: 33),
           Text('OR', style: TextStyle(color: Color(0xFF333333))),
